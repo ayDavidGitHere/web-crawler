@@ -1,0 +1,26 @@
+{
+  "name": "web-crawler",
+  "version": "1.0.0",
+  "description": "nodejs web crawler to find a specific html content",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run dev-start",
+    "dev-start": "export NODE_OPTIONS=--openssl-legacy-provider    &&    export NODE_PATH=$(npm root --quiet -g)       &&         nodemon ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayDavidgithere/nodewebcrawler.git"
+  },
+  "keywords": [
+    "nodejs",
+    "keyword",
+    "crawl"
+  ],
+  "author": "aydavid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayDavidgithere/nodewebcrawler/issues"
+  },
+  "homepage": "https://github.com/ayDavidgithere/nodewebcrawler#readme"
+}
