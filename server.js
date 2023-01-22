@@ -37,12 +37,12 @@ async function parseContent(items, selector, keyword = ""){
                 const html = response.data; //console.log(url); ////console.log("html ... \n", typeof html, "\n", html.slice(0, 50))
                 const $ = cheerio.load(html);  
                 if ($(selector).length > 0  && html.toLowerCase().indexOf(keyword.toLowerCase()) >= 0)
-                sites.push({url, elements: $(selector)});
+                sites.push({message: `url (found) (${index}): ${url}, keyword (${keyword}) in element (${selector})`, url, });//elements: $(selector)});
                 else
-                console.log(`url (not match) (${index}):`, url); 
+                console.log({ message: `url (not match) (${index}): ${url}`}.message); 
             } catch (err) {
                 //if(index>2)  console.log(err.message);//for(let key in err) {console.log(key)}
-                console.log(`url (error) (${index}): `, url, "\x1b[31m", index>0?"               |=|=|   "+err.message:"", "\x1b[37m"); 
+                console.log({ message: `url (error) (${index}):  ${url} \x1b[31m              ....   ${err.message} \x1b[37m`, }.message); 
             }
             urlcount ++;
             if(urlcount >= urls.length) resolve(sites);
@@ -68,21 +68,21 @@ async function googleSearch(q){
         return ({ error: 'Error Occurred' })
     }
 }//EO googleSearch()
+
+
+
+
+
+
+
+
+
+
+
+
+
 (async function (){
-    let gs = ( await googleSearch("buy airtime glo") );
-    let content = await parseContent(gs.items, "script", "paystack"); 
+    const gs = ( await googleSearch("aydavidgithere") ); //search_query
+    const content = await parseContent(gs.items, "html", "aydavidgithere");  // (html_tag, "keyword(optional)")
     console.log( content );
 })();
-
-
-
-
-
-
-app.get('/search', async (req, res) => {
-    const { q } = req.query;
-    return res.json(await googleSearch(q));
-})
-app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000')
-})

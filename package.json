@@ -5,8 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run dev-start",
+    "start": "node ./server.js",
     "dev-start": "export NODE_OPTIONS=--openssl-legacy-provider    &&    export NODE_PATH=$(npm root --quiet -g)       &&         nodemon ./server.js"
+  },
+  "dependencies": {
+    "axios": "",
+    "cheerio": "",
+    "express": ""
   },
   "repository": {
     "type": "git",
