@@ -79,10 +79,13 @@ async function googleSearch(q){
 
 
 
-
-
-(async function (){
-    const gs = ( await googleSearch("aydavidgithere") ); //search_query
-    const content = await parseContent(gs.items, "html", "aydavidgithere");  // (html_tag, "keyword(optional)")
+module.exports =
+{
+  googleSearch,
+  parseContent,
+  index: async function(search_query="aydavidgithere", html_tag="html", keyword="aydavidgithere"){
+    const gs = ( await googleSearch(keyword) ); //search_query
+    const content = await parseContent(gs.items, html_tag, keyword);  // (html_tag, "keyword(optional)")
     console.log( content );
-})();
+  }
+}
